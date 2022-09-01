@@ -25,30 +25,11 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Menu',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Pedidos',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Histórico',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Configurações',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+
     });
   }
 
@@ -59,9 +40,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: const Text('Força de Vendas'),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        // child: _widgetOptions.elementAt(_selectedIndex),
+        child: IndexedStack(
+          index: _selectedIndex,
+          children: <Widget>[
+            Menu(),
+            Pedidos(),
+            Historico(),
+            Configuracoes(),
+
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.menu),
@@ -69,8 +61,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Pedidos',
             backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
@@ -89,6 +81,58 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Colors.lightBlueAccent,
         onTap: _onItemTapped,
 
+      ),
+    );
+  }
+}
+
+class Menu extends StatelessWidget {
+  const Menu({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Menu'),
+      ),
+    );
+  }
+}
+
+class Pedidos extends StatelessWidget {
+  const Pedidos({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Pedidos'),
+      ),
+    );
+  }
+}
+
+class Historico extends StatelessWidget {
+  const Historico({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Histórico'),
+      ),
+    );
+  }
+}
+
+class Configuracoes extends StatelessWidget {
+  const Configuracoes({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Configurações'),
       ),
     );
   }
