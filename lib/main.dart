@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'screens/configuracoes.dart';
+import 'screens/historico.dart';
+import 'screens/menu.dart';
+import 'screens/pedidos.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,21 +29,17 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Força de Vendas'),
-      ),
       body: Center(
         // child: _widgetOptions.elementAt(_selectedIndex),
         child: IndexedStack(
@@ -48,12 +49,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Pedidos(),
             Historico(),
             Configuracoes(),
-
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.menu),
@@ -75,64 +74,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Configurações',
             backgroundColor: Colors.indigo,
           ),
-
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.lightBlueAccent,
         onTap: _onItemTapped,
-
-      ),
-    );
-  }
-}
-
-class Menu extends StatelessWidget {
-  const Menu({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Menu'),
-      ),
-    );
-  }
-}
-
-class Pedidos extends StatelessWidget {
-  const Pedidos({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Pedidos'),
-      ),
-    );
-  }
-}
-
-class Historico extends StatelessWidget {
-  const Historico({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Histórico'),
-      ),
-    );
-  }
-}
-
-class Configuracoes extends StatelessWidget {
-  const Configuracoes({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Configurações'),
       ),
     );
   }
