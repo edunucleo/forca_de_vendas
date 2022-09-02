@@ -15,10 +15,11 @@ class _PedidoState extends State<Pedido> {
         title: !isSearching?
         const Text('Pedido'):
         TextField(
+          autofocus: true,
           style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               icon: Icon(Icons.search,color: Colors.white),
-              hintText: 'Buscar Itens',
+              hintText: 'Buscar Item',
               hintStyle: TextStyle(color:Colors.white),
             ),
         ),
