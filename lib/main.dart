@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/configuracoes.dart';
 import 'screens/historico.dart';
-import 'screens/menu.dart';
+import 'screens/pedidos.dart';
 import 'screens/pedido.dart';
 
 void main() => runApp(const MyApp());
@@ -45,7 +45,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: IndexedStack(
           index: _selectedIndex,
           children: <Widget>[
-            Menu(),
+            Pedidos(),
             Pedido(),
             Historico(),
             Configuracoes(),
@@ -55,12 +55,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.menu),
-            label: 'Menu',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Pedidos',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.add_shopping_cart_outlined),
             label: 'Pedido',
             backgroundColor: Colors.blueAccent,
           ),

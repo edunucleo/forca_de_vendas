@@ -42,14 +42,7 @@ class _PedidoState extends State<Pedido> {
             },
             icon: Icon(Icons.search),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.list),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.grid_on),
-          ),
+
         ],
       ),
       body: Center(
