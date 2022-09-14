@@ -59,9 +59,7 @@ class _PedidoState extends State<Pedido> {
             produto_list_layout(),
             produto_list_layout(),
             produto_list_layout(),
-
           ],
-
         ),
       ),
     );
