@@ -11,7 +11,6 @@ class ListaProdutos {
     Produto(4, 2, true, 'Produto4',123456,'foto.jpg', 124.33),
     Produto(5, 2, true, 'Produto5',123456,'foto.jpg', 125.33),
     Produto(6, 3, true, 'Produto6',123456,'foto.jpg', 126.33),
-
   ];
 
   static List<Produto> carregaProdutos() {

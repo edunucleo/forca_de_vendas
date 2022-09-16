@@ -6,6 +6,7 @@ class Pedido extends StatefulWidget {
 
   @override
   _PedidoState createState() => _PedidoState();
+
 }
 
 class _PedidoState extends State<Pedido> {
@@ -47,20 +48,16 @@ class _PedidoState extends State<Pedido> {
           ),
         ],
       ),
-      body: Center(
-        child:ListView(
-          children: <Widget> [
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-            produto_list_layout(),
-          ],
+      body: ListView.builder(
+        itemCount: produtos.length,
+        prototypeItem: ListTile(
+          title: Text(produtos.toString()),
         ),
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(produtos[index].nome),
+          );
+        },
       ),
     );
   }
@@ -81,3 +78,4 @@ class produto_list_layout extends StatelessWidget {
     );
   }
 }
+List<Produto> produtos = ListaProdutos.carregaProdutos();
