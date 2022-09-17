@@ -59,7 +59,9 @@ class _PedidoState extends State<Pedido> {
             leading: Image.network('https://media-exp1.licdn.com/dms/image/C4D03AQHSKexgrFF--Q/profile-displayphoto-shrink_100_100/0/1516956407194?e=1668643200&v=beta&t=S7fI8bSsbkamuxytC-pICWKqFtJwHULDwUmKvSiYZn0'),
             title: Text(produtos[index].nome),
             trailing: Text(produtos[index].preco.toString()),
-            onTap: (){},
+            onTap: (){
+              debugPrint('clicou');
+            },
 
           );
         },
