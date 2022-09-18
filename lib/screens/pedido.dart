@@ -17,7 +17,7 @@ class _PedidoState extends State<Pedido> {
       appBar: AppBar(
         title: !isSearching
             ? const Text('Pedido')
-            : TextField(
+            : const TextField(
                 autofocus: true,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -31,18 +31,18 @@ class _PedidoState extends State<Pedido> {
               ? IconButton(
                   onPressed: () {
                     setState(() {
-                      this.isSearching = !this.isSearching;
+                      isSearching = !isSearching;
                     });
                   },
-                  icon: Icon(Icons.cancel),
+                  icon: const Icon(Icons.cancel),
                 )
               : IconButton(
                   onPressed: () {
                     setState(() {
-                      this.isSearching = !this.isSearching;
+                      isSearching = isSearching;
                     });
                   },
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                 ),
         ],
       ),
@@ -55,9 +55,10 @@ class _PedidoState extends State<Pedido> {
           return Column(
             children: [
               Container(
+                margin: const EdgeInsets.all(5),
                 decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Color(0xcc000000),
@@ -69,15 +70,18 @@ class _PedidoState extends State<Pedido> {
                 height: 80,
                 width: double.infinity,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/foto.jpg'),
-                          )
-                      ),
+                      margin: const EdgeInsets.all(5),
+                      width: 70,
+                      height: 70,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/foto.jpg'),
+                            fit: BoxFit.cover,
+                          )),
                     ),
                     Text(produtos[index].nome),
                     Text(produtos[index].preco.toString())
