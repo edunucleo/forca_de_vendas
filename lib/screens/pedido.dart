@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:forca_de_vendas/models/listaprodutos.dart';
 import 'package:forca_de_vendas/models/produto.dart';
@@ -72,7 +70,15 @@ class _PedidoState extends State<Pedido> {
                 width: double.infinity,
                 child: Row(
                   children: [
-                    Image.asset('assets/images/foto.jpg'),
+                    Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/foto.jpg'),
+                          )
+                      ),
+                    ),
                     Text(produtos[index].nome),
                     Text(produtos[index].preco.toString())
                   ],
