@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 import 'package:forca_de_vendas/models/listaprodutos.dart';
 import 'package:forca_de_vendas/models/produto.dart';
 
@@ -10,6 +12,7 @@ class Pedido extends StatefulWidget {
 class _PedidoState extends State<Pedido> {
   List<Produto> produtos = ListaProdutos.carregaProdutos();
   bool isSearching = false;
+  var f = NumberFormat("###.0#", "pt_BR");
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class _PedidoState extends State<Pedido> {
               : IconButton(
                   onPressed: () {
                     setState(() {
-                      isSearching = isSearching;
+                      isSearching = !isSearching;
                     });
                   },
                   icon: const Icon(Icons.search),
@@ -57,7 +60,7 @@ class _PedidoState extends State<Pedido> {
               Container(
                 margin: const EdgeInsets.all(5),
                 decoration: const BoxDecoration(
-                  color: Colors.lightBlueAccent,
+                  color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
@@ -76,15 +79,32 @@ class _PedidoState extends State<Pedido> {
                       margin: const EdgeInsets.all(5),
                       width: 70,
                       height: 70,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
+                          border: Border.all(
+                            color: Colors.black,
+                            //width: 10.0,
+                          ),
                           image: DecorationImage(
                             image: AssetImage('assets/images/foto.jpg'),
                             fit: BoxFit.cover,
                           )),
                     ),
                     Text(produtos[index].nome),
-                    Text(produtos[index].preco.toString())
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Text.rich(
+                        TextSpan(
+                          text: 'R\$', // default text style
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: f.format(produtos[index].preco),
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

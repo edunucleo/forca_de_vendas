@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'screens/configuracoes.dart';
 import 'screens/historico.dart';
 import 'screens/pedidos.dart';
