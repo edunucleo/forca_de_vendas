@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'screens/configuracoes.dart';
 import 'screens/historico.dart';
@@ -52,27 +53,67 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Stack(children: <Widget>[
+          Icon(Icons.shopping_cart),
+          Badge(
+            child: Card(), //you can replace with your widget
+            badgeContent: Text("3"),
+            position: BadgePosition.topEnd(),
+          ),
+        ]),
             label: 'Pedidos',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart_outlined),
+            icon: Stack(children: <Widget>[
+              Icon(Icons.add_shopping_cart_outlined),
+              Badge(
+                child: Card(), //you can replace with your widget
+                badgeContent: Text("3"),
+                position: BadgePosition.topEnd(),
+              ),
+            ]),
             label: 'Pedido',
             backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
+            icon: Stack(children: <Widget>[
+              Icon(Icons.history),
+              Badge(
+                child: Card(), //you can replace with your widget
+                badgeContent: Text("3"),
+                position: BadgePosition.topEnd(),
+              ),
+            ]),
             label: 'Histórico',
             backgroundColor: Colors.lightBlue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Stack(children: <Widget>[
+              Icon(Icons.settings),
+              Badge(
+                child: Card(), //you can replace with your widget
+                badgeContent: Text("3"),
+                position: BadgePosition.topEnd(),
+              ),
+            ]),
+
             label: 'Configurações',
             backgroundColor: Colors.indigo,
           ),
+          BottomNavigationBarItem(
+            icon: new Stack(children: <Widget>[
+              Icon(Icons.menu),
+              Badge(
+                child: Card(), //you can replace with your widget
+                badgeContent: Text("3"),
+                position: BadgePosition.topEnd(),
+              ),
+            ]),
+            label: 'Menu',
+          )
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.lightBlueAccent,
