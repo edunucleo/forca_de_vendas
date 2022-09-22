@@ -1,9 +1,13 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+
 import 'screens/configuracoes.dart';
 import 'screens/historico.dart';
 import 'screens/pedidos.dart';
 import 'screens/pedido.dart';
+import 'screens/menu.dart';
+
+import 'widgets/icone_notificado.dart';
 
 void main() => runApp(const MyApp());
 
@@ -49,69 +53,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Pedido(),
             Historico(),
             Configuracoes(),
+            Menu(),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Stack(children: <Widget>[
-          Icon(Icons.shopping_cart),
-          Badge(
-            child: Card(), //you can replace with your widget
-            badgeContent: Text("3"),
-            position: BadgePosition.topEnd(),
-          ),
-        ]),
+            icon: iconeNotificado(Icons.shopping_cart, false, 1),
             label: 'Pedidos',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Stack(children: <Widget>[
-              Icon(Icons.add_shopping_cart_outlined),
-              Badge(
-                child: Card(), //you can replace with your widget
-                badgeContent: Text("3"),
-                position: BadgePosition.topEnd(),
-              ),
-            ]),
+            icon: iconeNotificado(Icons.add_shopping_cart_outlined, true, 1),
             label: 'Pedido',
             backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
-            icon: Stack(children: <Widget>[
-              Icon(Icons.history),
-              Badge(
-                child: Card(), //you can replace with your widget
-                badgeContent: Text("3"),
-                position: BadgePosition.topEnd(),
-              ),
-            ]),
+            icon: iconeNotificado(Icons.history, false, 1),
             label: 'Histórico',
             backgroundColor: Colors.lightBlue,
           ),
           BottomNavigationBarItem(
-            icon: Stack(children: <Widget>[
-              Icon(Icons.settings),
-              Badge(
-                child: Card(), //you can replace with your widget
-                badgeContent: Text("3"),
-                position: BadgePosition.topEnd(),
-              ),
-            ]),
-
+            icon: iconeNotificado(Icons.settings, false, 1),
             label: 'Configurações',
             backgroundColor: Colors.indigo,
           ),
           BottomNavigationBarItem(
-            icon: new Stack(children: <Widget>[
-              Icon(Icons.menu),
-              Badge(
-                child: Card(), //you can replace with your widget
-                badgeContent: Text("3"),
-                position: BadgePosition.topEnd(),
-              ),
-            ]),
+            icon: iconeNotificado(Icons.menu, false, 1),
             label: 'Menu',
           )
         ],
@@ -121,4 +90,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
     );
   }
+
+
 }
