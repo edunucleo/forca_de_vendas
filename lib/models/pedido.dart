@@ -8,7 +8,6 @@ class Pedido{
    final List<Produto> itens;
    final Endereco endereco;
 
-
   const Pedido(
       this.cod_ped,
       this.cod_cli,
