@@ -1,21 +1,24 @@
-class Endereco{
+import 'package:flutter/cupertino.dart';
+
+class Endereco {
   final int cod_cli;
   final int cep;
   final String endereco;
   final String numero;
+  final String? complemento;
   final String bairro;
   final String cidade;
-  final  Estado estado;
+  final Estado estado;
 
   Endereco(
-      this.cod_cli,
-      this.cep,
-      this.endereco,
-      this.numero,
-      this.bairro,
-      this.cidade,
-      this.estado
-      );
+      @required this.cod_cli,
+      @required this.cep,
+      @required this.endereco,
+      @required this.numero,
+      this.complemento,
+      @required this.bairro,
+      @required this.cidade,
+      @required this.estado);
 }
 
 enum Estado {
