@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:badges/badges.dart';
 
 import 'package:forca_de_vendas/models/listaprodutos.dart';
 import 'package:forca_de_vendas/models/produto.dart';
@@ -57,8 +56,7 @@ class _PedidoState extends State<Pedido> {
         //  ),
 
         itemBuilder: (context, index) {
-
-          return InkWell(
+          return GestureDetector(
             onTap: (){
               debugPrint('clicou em $index');
             },

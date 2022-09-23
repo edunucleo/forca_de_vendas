@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/configuracoes.dart';
