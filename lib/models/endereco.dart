@@ -5,7 +5,7 @@ class Endereco {
   final int cep;
   final String endereco;
   final String numero;
-  final String? complemento;
+  final String complemento;
   final String bairro;
   final String cidade;
   final Estado estado;
