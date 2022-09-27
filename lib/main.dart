@@ -59,27 +59,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: iconeNotificado(Icons.shopping_cart, false, 1),
+            icon: iconeNotificado(Icons.shopping_cart, 0),
             label: 'Pedidos',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: iconeNotificado(Icons.add_shopping_cart_outlined, true, 1),
+            icon: iconeNotificado(Icons.add_shopping_cart_outlined, 1),
             label: 'Pedido',
             backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
-            icon: iconeNotificado(Icons.history, false, 1),
+            icon: iconeNotificado(Icons.history, 0),
             label: 'Histórico',
             backgroundColor: Colors.lightBlue,
           ),
           BottomNavigationBarItem(
-            icon: iconeNotificado(Icons.settings, false, 1),
+            icon: iconeNotificado(Icons.settings, 0),
             label: 'Configurações',
             backgroundColor: Colors.indigo,
           ),
           BottomNavigationBarItem(
-            icon: iconeNotificado(Icons.menu, false, 1),
+            icon: iconeNotificado(Icons.menu, 0),
             label: 'Menu',
           )
         ],

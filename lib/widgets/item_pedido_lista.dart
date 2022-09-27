@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 var f = NumberFormat("###.0#", "pt_BR");
 
 Container itemPedido(int index, produtos) {
+
   return Container(
     margin: const EdgeInsets.all(5),
     decoration: const BoxDecoration(
@@ -33,9 +34,11 @@ Container itemPedido(int index, produtos) {
                 //width: 10.0,
               ),
               image: DecorationImage(
-                image: AssetImage('assets/images/foto.jpg'),
+                image: AssetImage('assets/images/${produtos[index].imagem}'),
                 fit: BoxFit.cover,
+
               )),
+
         ),
         Text(produtos[index].nome),
         Container(
@@ -54,5 +57,7 @@ Container itemPedido(int index, produtos) {
         )
       ],
     ),
+
   );
+
 }
