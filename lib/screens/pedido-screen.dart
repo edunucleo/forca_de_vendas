@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:forca_de_vendas/models/listaprodutos.dart';
 import 'package:forca_de_vendas/models/produto.dart';
+import 'package:forca_de_vendas/screens/produto-screen.dart';
 import 'package:forca_de_vendas/widgets/icone_notificado.dart';
 import 'package:forca_de_vendas/widgets/item_pedido_lista.dart';
 
-class Pedido extends StatefulWidget {
+class PedidoScreen extends StatefulWidget {
   @override
-  _PedidoState createState() => _PedidoState();
+  _PedidoScreenState createState() => _PedidoScreenState();
 }
 
-class _PedidoState extends State<Pedido> {
+class _PedidoScreenState extends State<PedidoScreen> {
   //carregar a lista do banco com a pesquisa efetuada pelo usuario. mostrar apenas produtos em destaque
 
   List<Produto> produtos = ListaProdutos.carregaProdutos();
@@ -55,6 +56,8 @@ class _PedidoState extends State<Pedido> {
                 debugPrint(valor.toString());
               },
               icon: iconeNotificado(Icons.shopping_basket, valor)),
+
+
         ],
       ),
       body: ListView.builder(
@@ -64,7 +67,7 @@ class _PedidoState extends State<Pedido> {
             onTap: () {
               //AO CLICAR MANDAR PRODUTO PARA A CESTA COM QUANTIDADE
               // produtos[index];
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProdutoScreen(produtos[index])));
               setState(() {
                 valor++;
               });

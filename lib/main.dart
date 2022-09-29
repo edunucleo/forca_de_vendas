@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'screens/configuracoes.dart';
-import 'screens/historico.dart';
-import 'screens/pedidos.dart';
-import 'screens/pedido.dart';
-import 'screens/menu.dart';
+import 'screens/configuracoes-screen.dart';
+import 'screens/historico-screen.dart';
+import 'screens/pedidos-screen.dart';
+import 'screens/pedido-screen.dart';
+import 'screens/menu-screen.dart';
 
 import 'widgets/icone_notificado.dart';
 
@@ -49,7 +49,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           index: _selectedIndex,
           children: <Widget>[
             Pedidos(),
-            Pedido(),
+            PedidoScreen(),
             Historico(),
             Configuracoes(),
             Menu(),
