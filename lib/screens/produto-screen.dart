@@ -50,19 +50,24 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
               child: Card(
                 color: Colors.lightBlueAccent,
                 margin: const EdgeInsets.fromLTRB(5, 10, 5, 30),
-                child: Text.rich(
-                  TextSpan(
-                    style: TextStyle(fontSize: 20),
-                    text: 'R\$', // default text style
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: f.format(widget.produto.preco),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 25),
-                      ),
-                    ],
+                child: Center(
+
+                  child:Text.rich(
+                    style: TextStyle(color: Colors.white),
+                    TextSpan(
+                      style: TextStyle(fontSize: 25),
+                      text: 'R\$', // default text style
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: f.format(widget.produto.preco),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 35),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                )
+
               ),
             ),
             Card(
