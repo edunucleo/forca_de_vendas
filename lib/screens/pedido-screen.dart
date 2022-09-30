@@ -65,7 +65,7 @@ class _PedidoScreenState extends State<PedidoScreen> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              //AO CLICAR MANDAR PRODUTO PARA A CESTA COM QUANTIDADE
+              //AO CLICAR MANDAR ABRIR A DESCRIÇÃO DO PRODUTO E ADICIONAR QUANTIDADE
               // produtos[index];
               Navigator.push(context, MaterialPageRoute(builder: (context) => ProdutoScreen(produtos[index])));
               setState(() {
