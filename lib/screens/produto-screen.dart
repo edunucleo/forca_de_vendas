@@ -14,9 +14,11 @@ class ProdutoScreen extends StatefulWidget {
 }
 
 class _ProdutoScreenState extends State<ProdutoScreen> {
+  var qtde = 1;
   @override
   Widget build(BuildContext context) {
     var f = NumberFormat("###.0#", "pt_BR");
+
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.produto.nome),
@@ -70,6 +72,31 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
 
               ),
             ),
+            Container(
+              height: 100,
+              child: Card(
+                  color: Colors.lightBlueAccent,
+                  margin: const EdgeInsets.fromLTRB(5, 10, 5, 30),
+                  child: Center(
+
+                    child:Text.rich(
+                      style: TextStyle(color: Colors.white),
+                      TextSpan(
+                        style: TextStyle(fontSize: 25),
+                        text: 'R\$', // default text style
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: f.format(widget.produto.preco*qtde),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 35),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+
+              ),
+            ),
             Card(
               color: Colors.lightBlueAccent,
               child: Row(
@@ -83,14 +110,22 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                       child: IconButton(
                         icon: Icon(Icons.remove),
                         onPressed: () {
-                          print('pressed');
+                          setState(() {
+                            this.qtde--;
+                            print(this.qtde.toString());
+                          });
                         },
                       )),
                   Container(
                     width: 50,
                     margin: const EdgeInsets.all(15),
                     child: TextFormField(
-                        initialValue: '1', textAlign: TextAlign.center),
+                        textAlign: TextAlign.center,
+                      controller: TextEditingController(
+                        text: qtde.toString(),
+                      ),
+                      style: TextStyle(color: Colors.white,fontSize: 35),
+                    ),
                   ),
                   Ink(
                       decoration: ShapeDecoration(
@@ -100,7 +135,10 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                       child: IconButton(
                         icon: Icon(Icons.add),
                         onPressed: () {
-                          print('pressed');
+                          setState(() {
+                            this.qtde++;
+                            print(this.qtde.toString());
+                          });
                         },
                       )),
                 ],
