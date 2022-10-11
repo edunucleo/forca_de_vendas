@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:forca_de_vendas/models/pedido.dart';
+
 import 'package:forca_de_vendas/screens/pedido-screen.dart';
-import 'package:forca_de_vendas/widgets/icone_notificado.dart';
+
 
 class PedidosScreen extends StatefulWidget {
   @override
@@ -9,8 +9,6 @@ class PedidosScreen extends StatefulWidget {
 }
 
 class _PedidosScreenState extends State<PedidosScreen> {
-  int _currentStep = 0;
-  StepperType stepperType = StepperType.vertical;
   bool isSearching = false;
   int valor = 0;
 
@@ -49,58 +47,7 @@ class _PedidosScreenState extends State<PedidosScreen> {
                 ),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-              child: Stepper(
-                type: stepperType,
-                physics: ScrollPhysics(),
-                currentStep: _currentStep,
-                onStepTapped: (step) => tapped(step),
-                onStepContinue: continued,
-                onStepCancel: cancel,
-                steps: <Step>[
-                  Step(
-                    title: new Text('Itens'),
-                    content: Column(
-                      children: <Widget>[
-                        Text('Listar Produtos aqui para adicionar no pedido'),
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 0
-                        ? StepState.complete
-                        : StepState.disabled,
-                  ),
-                  Step(
-                    title: new Text('Cliente'),
-                    content: Column(
-                      children: <Widget>[Text('Endereço do Cliente')],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 1
-                        ? StepState.complete
-                        : StepState.disabled,
-                  ),
-                  Step(
-                    title: new Text('Concluir o Pedido'),
-                    content: Column(
-                      children: <Widget>[
-                        Text('colocar lista de itens e total a ser pago')
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 2
-                        ? StepState.complete
-                        : StepState.disabled,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: Container(child: Text('Colocar uma lista de pedidos aqui')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _mostraDialog();
@@ -109,24 +56,6 @@ class _PedidosScreenState extends State<PedidosScreen> {
         child: const Icon(Icons.add),
       ),
     );
-  }
-
-  switchStepsType() {
-    setState(() => stepperType == StepperType.vertical
-        ? stepperType = StepperType.horizontal
-        : stepperType = StepperType.vertical);
-  }
-
-  tapped(int step) {
-    setState(() => _currentStep = step);
-  }
-
-  continued() {
-    _currentStep < 2 ? setState(() => _currentStep += 1) : null;
-  }
-
-  cancel() {
-    _currentStep > 0 ? setState(() => _currentStep -= 1) : null;
   }
 
   Future<void> _mostraDialog() async {
@@ -150,7 +79,7 @@ class _PedidosScreenState extends State<PedidosScreen> {
                 Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  PedidoScreen()),
+                  MaterialPageRoute(builder: (context) => PedidoScreen()),
                 );
               },
             ),
