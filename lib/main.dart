@@ -48,7 +48,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: IndexedStack(
           index: _selectedIndex,
           children: <Widget>[
-            Pedidos(),
+            PedidosScreen(),
             PedidoScreen(),
             Historico(),
             Configuracoes(),

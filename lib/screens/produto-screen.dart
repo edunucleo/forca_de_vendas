@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:forca_de_vendas/models/pedido.dart';
 import 'package:forca_de_vendas/models/produto.dart';
 import 'package:intl/intl.dart';
 
 class ProdutoScreen extends StatefulWidget {
   Produto produto;
+  //Pedido pedido;
 
   ProdutoScreen(this.produto);
 
@@ -15,6 +17,7 @@ class ProdutoScreen extends StatefulWidget {
 
 class _ProdutoScreenState extends State<ProdutoScreen> {
   var qtde = 1;
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,28 +64,6 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                         text: 'R\$', // default text style
                         children: <TextSpan>[
                           TextSpan(
-                            text: f.format(widget.produto.preco),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 35),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )),
-            ),
-            Container(
-              height: 100,
-              child: Card(
-                  color: Colors.lightBlueAccent,
-                  margin: const EdgeInsets.fromLTRB(5, 10, 5, 30),
-                  child: Center(
-                    child: Text.rich(
-                      style: TextStyle(color: Colors.white),
-                      TextSpan(
-                        style: TextStyle(fontSize: 25),
-                        text: 'R\$', // default text style
-                        children: <TextSpan>[
-                          TextSpan(
                             text: f.format(widget.produto.preco * qtde),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 35),
@@ -106,7 +87,7 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                         icon: Icon(Icons.remove),
                         onPressed: () {
                           setState(() {
-                            this.qtde>0? this.qtde--:this.qtde;
+                            this.qtde>1? this.qtde--:this.qtde;
                             print(this.qtde.toString());
                           });
                         },
@@ -120,6 +101,7 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                         text: qtde.toString(),
                       ),
                       style: TextStyle(color: Colors.white, fontSize: 35),
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                   Ink(
@@ -139,6 +121,21 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
                 ],
               ),
             ),
+            TextButton(
+
+                onPressed: (){
+                  //verificar se tem um pedido, caso não tenha criar um pedido em branco e adicionar o produto e a qtde no pedido
+                  List<Produto> itensP;
+               // widget.pedido =  new Pedido(1, 2, 'João', itensP.add(widget.produto), endereco);
+                },
+
+                child:Card(
+                    color: Colors.lightBlueAccent,
+                    child: Text('Adicionar ao Pedido')
+                )
+
+            )
+
           ],
         ));
   }

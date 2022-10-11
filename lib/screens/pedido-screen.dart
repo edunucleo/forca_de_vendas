@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:forca_de_vendas/models/listaprodutos.dart';
+import 'package:forca_de_vendas/models/pedido.dart';
 import 'package:forca_de_vendas/models/produto.dart';
 import 'package:forca_de_vendas/screens/produto-screen.dart';
 import 'package:forca_de_vendas/widgets/icone_notificado.dart';
@@ -13,7 +14,7 @@ class PedidoScreen extends StatefulWidget {
 
 class _PedidoScreenState extends State<PedidoScreen> {
   //carregar a lista do banco com a pesquisa efetuada pelo usuario. mostrar apenas produtos em destaque
-
+ //Pedido pedido = Pedido(1, 1, '1', itens=Null, endereco);
   List<Produto> produtos = ListaProdutos.carregaProdutos();
   bool isSearching = false;
   int valor = 0;
