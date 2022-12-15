@@ -5,7 +5,7 @@ import 'screens/historico-screen.dart';
 import 'screens/pedidos-screen.dart';
 import 'screens/pedido-screen.dart';
 import 'screens/menu-screen.dart';
-
+//teste
 import 'widgets/icone_notificado.dart';
 
 void main() => runApp(const MyApp());
